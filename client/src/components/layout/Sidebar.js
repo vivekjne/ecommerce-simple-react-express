@@ -8,14 +8,11 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
 
 const drawerWidth = 240;
 
@@ -76,28 +73,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Layout({ children }) {
+export default function Sidebar({ children, handleDrawerClose, open }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Header handleDrawerOpen={handleDrawerOpen} open={open} />
-      <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          {children}
-        </Container>
-      </main>
-    </div>
+    <Drawer
+      variant="permanent"
+      classes={{
+        paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+      }}
+      open={open}
+    >
+      <div className={classes.toolbarIcon}>
+        <IconButton onClick={handleDrawerClose}>
+          <ChevronLeftIcon />
+        </IconButton>
+      </div>
+      <Divider />
+      <List>{mainListItems}</List>
+      <Divider />
+      <List>{secondaryListItems}</List>
+    </Drawer>
   );
 }
