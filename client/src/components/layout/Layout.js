@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
+    backgroundColor: theme.palette.grey[100],
   },
   container: {
     paddingTop: theme.spacing(4),
