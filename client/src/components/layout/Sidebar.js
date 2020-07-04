@@ -11,6 +11,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import MenuIcon from "@material-ui/icons/Menu";
+
 import { mainListItems, secondaryListItems } from "./listItems";
 import Header from "./Header";
 
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-even",
     padding: "0 8px",
     ...theme.mixins.toolbar,
   },
@@ -88,8 +90,9 @@ export default function Sidebar({ children, handleDrawerClose, open }) {
     >
       <div className={classes.toolbarIcon}>
         <IconButton onClick={handleDrawerClose}>
-          <ChevronLeftIcon />
+          <MenuIcon />
         </IconButton>
+        <Typography>Ecommerce Admin</Typography>
       </div>
       <Divider />
       <List>{mainListItems}</List>

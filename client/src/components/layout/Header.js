@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: theme.palette.common.white,
+    color: theme.palette.grey[700],
+    borderBottom: `1px solid ${theme.palette.grey[300]}`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -53,6 +56,7 @@ export default function Header({ handleDrawerOpen, open }) {
   return (
     <AppBar
       position="absolute"
+      elevation={0}
       className={clsx(classes.appBar, open && classes.appBarShift)}
     >
       <Toolbar className={classes.toolbar}>
