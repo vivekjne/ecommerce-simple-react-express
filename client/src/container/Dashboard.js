@@ -7,6 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chart from '../components/layout/Chart'
 import { yellow } from '@material-ui/core/colors';
+import ListComponent from '../components/layout/List';
+import Table from '../components/layout/Table'
 const styles = theme =>  ({
   root: {
     flexGrow: 1,
@@ -149,30 +151,19 @@ class Dashboard extends React.Component {
       </Paper>
         </Grid>
         <Grid item xs>
-          <Paper className={classes.paper}>
-          <Card
-            mainTitle='234'
-      subTitle='Total Orders'
-      icon={<ShopingCart style={{ fontSize: 50 }}/>}
-      />
+          <Paper elevation={3} className={classes.paper}>
+          <ListComponent/>
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
-          <Card
-            mainTitle='234'
-      subTitle='Total Orders'
-      icon={<ShopingCart style={{ fontSize: 50 }}/>}
-      />
+          <Table/>
+    
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
-          <Card
-            mainTitle='234'
-      subTitle='Total Orders'
-      icon={<ShopingCart style={{ fontSize: 50 }}/>}
-      />
+          <Table/>
           </Paper>
         </Grid>
       </Grid>
