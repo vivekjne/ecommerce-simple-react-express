@@ -30,7 +30,6 @@ export default function CustomTextField(props) {
         size="small"
         InputProps={{ classes }}
         {...props}
-        color="primary"
       />
     </ThemeProvider>
   );
